@@ -28,7 +28,7 @@ por
 ```javascript
 const puerto = 3000
 ```
-y vuelvan a correr en la carpeta `back-end
+y vuelvan a correr en la carpeta `back-end`
 ```bash
 node server.js
 ```
