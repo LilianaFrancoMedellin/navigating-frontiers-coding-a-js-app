@@ -17,6 +17,7 @@ cd back-end
 node server.js
 ```
 4. Revisar la aplicacion corriendo en el navegador: Abrir `http://localhost`
+5. Pueden matar el servidor pulsando CTRL C (al mismo tiempo) estando en la consola en la que arrancaron el servidor
 
 ## La tarea: Calentamiento
 ### Con dedicatoria a Laura # 1:
