@@ -6,7 +6,7 @@ Este repo contiene una app ultra sencilla para mostrar una lista de estudiantes
 1. Podemos instalar node.js directamente en la máquina: https://nodejs.org/en/learn/getting-started/how-to-install-nodejs
 Este proyecto se creó con la última versión LTS: `20.11.1`
 2. Instalar express como dependencia
-En la carpeta raíz correr
+En la carpeta raíz correr en la consola
 ```bash
 npm install
 ```
