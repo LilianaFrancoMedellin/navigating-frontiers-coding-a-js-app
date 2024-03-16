@@ -1,0 +1,17 @@
+{
+  "name": "max-pid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "teo-garcia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "ps-list": "^8.1.1"
+  }
+}
