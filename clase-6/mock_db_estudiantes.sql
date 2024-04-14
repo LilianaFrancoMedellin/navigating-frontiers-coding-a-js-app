@@ -44,7 +44,7 @@ VALUES (6,
 
 
 INSERT INTO ciudades (id, nombre, departamento)
-VALUES (6,
+VALUES (7,
         'sabaneta',
         'antioquia');
 
@@ -156,3 +156,145 @@ VALUES (12,
         'garcia',
         29,
         'pereira');
+
+
+-- QUERIES
+
+SELECT *
+FROM ciudades;
+
+ -- por id
+
+SELECT *
+FROM estudiantes
+WHERE id = 1 
+
+-- edad mayor o menor que
+
+SELECT *
+FROM estudiantes WHERE edad > 30 
+
+-- rango de edad
+
+SELECT *
+FROM estudiantes WHERE edad BETWEEN 25 AND 30 
+
+-- campo no sea null
+
+SELECT *
+FROM estudiantes WHERE segundo_nombre IS NOT NULL 
+
+-- campo sea null
+
+SELECT *
+FROM estudiantes WHERE segundo_nombre NOT NULL 
+
+-- la mayor edad
+
+SELECT max(edad)
+FROM estudiantes 
+
+-- la menor edad
+
+SELECT min(edad)
+FROM estudiantes 
+
+-- el promedio de edad
+
+SELECT avg(edad)
+FROM estudiantes 
+
+-- la suma de las edades
+
+SELECT sum(edad)
+FROM estudiantes 
+
+-- el total de registros en la tabla
+
+SELECT count(*)
+FROM estudiantes 
+
+-- select anidado
+
+SELECT * FROM estudiantes
+WHERE edad = (SELECT max(edad) FROM estudiantes)
+
+-- por edad y segundo nombre
+
+SELECT *
+FROM estudiantes WHERE edad = 30
+AND segundo_nombre IS NOT NULL 
+
+-- por edad con 2 valores (in)
+
+SELECT *
+FROM estudiantes WHERE edad IN (31, 27) 
+
+-- ordernamiento descendente o ascendente
+
+SELECT *
+FROM estudiantes
+ORDER BY primer_nombre DESC 
+
+-- limitar la cantidad de registros
+
+SELECT *
+FROM estudiantes LIMIT 3 
+
+-- haciendo join por el campo residencia con la tabla ciudades
+
+SELECT *
+FROM estudiantes e
+INNER JOIN ciudades c ON c.nombre = e.residencia 
+
+-- haciendo join pero trayendo algunos campos de ambas tablas
+
+SELECT e.primer_nombre,
+       c.nombre,
+       c.departamento
+FROM estudiantes e
+INNER JOIN ciudades c ON c.nombre = e.residencia 
+
+-- haciendo join, trayendo algunos campos y agregando condición where
+
+SELECT e.primer_nombre,
+       c.nombre,
+       c.departamento
+FROM estudiantes e
+INNER JOIN ciudades c ON c.nombre = e.residencia
+WHERE c.departamento = 'antioquia' 
+
+-- haciendo join, trayendo algunos campos pero usando alias en las columnas
+
+SELECT e.primer_nombre AS estudiante,
+     c.nombre AS ciudad,
+     c.departamento
+FROM estudiantes e
+INNER JOIN ciudades c ON c.nombre = e.residencia 
+
+-- tratando de concatenar primer nombre, segundo nombre y apellidos
+
+SELECT (e.primer_nombre || ' ' || e.segundo_nombre || ' ' || e.apellidos) AS estudiante,
+     c.nombre AS ciudad,
+     c.departamento
+FROM estudiantes e
+INNER JOIN ciudades c ON c.nombre = e.residencia 
+
+-- concatenando usando la función concat
+
+SELECT concat(e.primer_nombre, ' ', e.segundo_nombre, ' ', e.apellidos) AS estudiante,
+     c.nombre AS ciudad,
+     c.departamento
+FROM estudiantes e
+INNER JOIN ciudades c ON c.nombre = e.residencia 
+
+-- DELETE & UPDATE
+-- actualizar el segundo nombre del estudiante 2
+
+UPDATE estudiantes
+SET segundo_nombre = 'andrea' WHERE id = 2
+
+-- borrar el estudiante 5
+
+DELETE 
+FROM estudiantes WHERE id = 5
